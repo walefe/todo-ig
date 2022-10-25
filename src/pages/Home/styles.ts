@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   max-width: 100vw;
@@ -11,7 +11,7 @@ export const Header = styled.header`
   align-items: center;
   width: 100%;
   height: 200px;
-  background: ${props => props.theme["gray-700"]};
+  background: ${(props) => props.theme['gray-700']};
 `
 
 export const Form = styled.form`
@@ -25,15 +25,15 @@ export const Form = styled.form`
 export const InputForm = styled.input`
   flex: 1;
   padding: 1rem;
-  background: ${props => props.theme["gray-500"]};
+  background: ${(props) => props.theme['gray-500']};
   border: 0;
   border-radius: 8px;
-  color: ${props => props.theme["gray-100"]};
+  color: ${(props) => props.theme['gray-100']};
 
   :focus {
     outline: 0;
     box-shadow: 0 0 0 2px ${(props) => props.theme.purpleDark};
-}
+  }
 `
 
 export const ButtonForm = styled.button`
@@ -46,8 +46,8 @@ export const ButtonForm = styled.button`
   gap: 8px;
   border: none;
   border-radius: 8px;
-  background: ${props => props.theme.blueDark};
-  color: ${props => props.theme["gray-100"]};
+  background: ${(props) => props.theme.blueDark};
+  color: ${(props) => props.theme['gray-100']};
   cursor: pointer;
 
   span {
@@ -57,7 +57,7 @@ export const ButtonForm = styled.button`
   }
 
   :hover {
-    background: ${props => props.theme.blue};
+    background: ${(props) => props.theme.blue};
     transition: background 0.2s;
   }
 `

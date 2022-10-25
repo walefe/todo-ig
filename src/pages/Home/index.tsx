@@ -1,7 +1,7 @@
-import { ButtonForm, Container, Form, Header, InputForm } from "./styles";
+import { ButtonForm, Container, Form, Header, InputForm } from './styles'
 
-import Logo from '../../assets/Logo.svg';
-import { PlusCircle } from "phosphor-react";
+import Logo from '../../assets/Logo.svg'
+import { PlusCircle } from 'phosphor-react'
 
 export function Home() {
   return (
