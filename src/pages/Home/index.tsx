@@ -1,16 +1,16 @@
 import { PlusCircle } from 'phosphor-react'
 import {
-ButtonForm,
-Container,
-CreatedTasks,
-EmptyInfo,
-Form,
-Header,
-Info,
-InputForm,
-Main,
-TasksContainer,
-TasksDone
+  ButtonForm,
+  Container,
+  CreatedTasks,
+  EmptyInfo,
+  Form,
+  Header,
+  Info,
+  InputForm,
+  Main,
+  TasksContainer,
+  TasksDone,
 } from './styles'
 
 import Logo from '../../assets/Logo.svg'
@@ -38,10 +38,10 @@ export function Home() {
             <span>0</span>
           </CreatedTasks>
 
-          <TasksDone>Concluídas
+          <TasksDone>
+            Concluídas
             <span>0</span>
           </TasksDone>
-
         </Info>
         <TasksContainer>
           <EmptyInfo>
