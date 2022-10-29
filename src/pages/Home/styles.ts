@@ -98,7 +98,7 @@ export const TasksDone = styled.span`
     border-radius: 999px;
     margin-left: 8px;
     background: ${(props) => props.theme['gray-400']};
-    color: ${(props) => props.theme['gray-200']}
+    color: ${(props) => props.theme['gray-200']};
   }
 `
 
