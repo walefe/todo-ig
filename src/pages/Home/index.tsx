@@ -3,7 +3,7 @@ import {
   ButtonForm,
   Container,
   CreatedTasks,
-  EmptyInfo,
+  // EmptyInfo,
   Form,
   Header,
   Info,
@@ -14,7 +14,8 @@ import {
 } from './styles'
 
 import Logo from '../../assets/Logo.svg'
-import Clipboard from '../../assets/Clipboard.svg'
+// import Clipboard from '../../assets/Clipboard.svg'
+import { Task } from '../../components/Task'
 
 export function Home() {
   return (
@@ -44,11 +45,12 @@ export function Home() {
           </TasksDone>
         </Info>
         <TasksContainer>
-          <EmptyInfo>
+          {/* <EmptyInfo>
             <img src={Clipboard} alt="" />
             <span>Você ainda não tem tarefas cadastradas</span>
             <p>Crie tarefas e organize seus itens a fazer</p>
-          </EmptyInfo>
+          </EmptyInfo> */}
+          <Task />
         </TasksContainer>
       </Main>
     </Container>
