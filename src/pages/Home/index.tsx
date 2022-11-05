@@ -1,9 +1,9 @@
+import { useState } from 'react'
 import { PlusCircle } from 'phosphor-react'
 import {
   ButtonForm,
   Container,
   CreatedTasks,
-  // EmptyInfo,
   Form,
   Header,
   Info,
@@ -14,10 +14,12 @@ import {
 } from './styles'
 
 import Logo from '../../assets/Logo.svg'
-// import Clipboard from '../../assets/Clipboard.svg'
-import { Task } from '../../components/Task'
+import { Tasks } from '../../components/Task'
+import { EmptyInfo } from '../../components/EmptyInfo'
 
 export function Home() {
+  const [tasks, setTasks] = useState([])
+
   return (
     <Container>
       <Header>
@@ -45,12 +47,7 @@ export function Home() {
           </TasksDone>
         </Info>
         <TasksContainer>
-          {/* <EmptyInfo>
-            <img src={Clipboard} alt="" />
-            <span>Você ainda não tem tarefas cadastradas</span>
-            <p>Crie tarefas e organize seus itens a fazer</p>
-          </EmptyInfo> */}
-          <Task />
+          {tasks.length <= 0 ? <EmptyInfo /> : <Tasks />}
         </TasksContainer>
       </Main>
     </Container>
