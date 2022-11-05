@@ -1,16 +1,16 @@
 import { Trash } from 'phosphor-react'
-import { CheckTask, TaskContent, TasksWrapper } from './styles'
+import { Checkbox } from '../Checkbox'
 
-export function Task() {
+import { DeleteButton, TaskContent, TasksWrapper } from './styles'
+
+export function Tasks() {
   return (
     <TasksWrapper>
       <TaskContent>
-        <CheckTask />
-        <p>
-          Integer urna interdum massa libero auctor neque turpis turpis semper.
-          Duis vel sed fames integer.
-        </p>
-        <Trash size={24} weight="bold" />
+        <Checkbox />
+        <DeleteButton>
+          <Trash size={24} weight="bold" />
+        </DeleteButton>
       </TaskContent>
     </TasksWrapper>
   )
