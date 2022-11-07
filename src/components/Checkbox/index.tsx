@@ -1,13 +1,10 @@
 import { Container } from './styles'
 
-export function Checkbox() {
+export function Checkbox({ content }: { content: string }) {
   return (
     <Container>
       <input id="task" type="checkbox" />
-      <label htmlFor="task">
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed.
-      </label>
+      <label htmlFor="task">{content}</label>
     </Container>
   )
 }

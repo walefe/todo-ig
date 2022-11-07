@@ -1,17 +1,25 @@
 import { Trash } from 'phosphor-react'
+import { TasksProps } from '../../pages/Home'
 import { Checkbox } from '../Checkbox'
 
 import { DeleteButton, TaskContent, TasksWrapper } from './styles'
 
-export function Tasks() {
+interface Props {
+  tasks: TasksProps[]
+  deleteTask: (taskId: string) => void
+}
+
+export function Tasks({ tasks, deleteTask }: Props) {
   return (
     <TasksWrapper>
-      <TaskContent>
-        <Checkbox />
-        <DeleteButton>
-          <Trash size={24} weight="bold" />
-        </DeleteButton>
-      </TaskContent>
+      {tasks.map((task) => (
+        <TaskContent key={task.id}>
+          <Checkbox content={task.content} />
+          <DeleteButton onClick={() => deleteTask(task.id)}>
+            <Trash size={24} weight="bold" />
+          </DeleteButton>
+        </TaskContent>
+      ))}
     </TasksWrapper>
   )
 }
