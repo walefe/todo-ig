@@ -1,10 +1,37 @@
+import { Dispatch, SetStateAction } from 'react'
+import { TasksProps } from '../../pages/Home'
 import { Container } from './styles'
 
-export function Checkbox({ content }: { content: string }) {
+export function Checkbox({
+  content,
+  id,
+  isChecked,
+  handleTaskOnCheck,
+}: {
+  content: string
+  id: string
+  isChecked: boolean
+  handleTaskOnCheck: Dispatch<SetStateAction<TasksProps[]>>
+}) {
   return (
     <Container>
-      <input id="task" type="checkbox" />
-      <label htmlFor="task">{content}</label>
+      <input
+        id={id}
+        type="checkbox"
+        checked={isChecked}
+        onChange={(e) =>
+          handleTaskOnCheck((state) => {
+            const updateTask = state.map((task) => {
+              if (task.id === id) {
+                task.isChecked = true
+              }
+              return task
+            })
+            return updateTask
+          })
+        }
+      />
+      <label htmlFor={id}>{content}</label>
     </Container>
   )
 }
