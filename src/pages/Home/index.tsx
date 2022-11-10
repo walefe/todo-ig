@@ -78,7 +78,11 @@ export function Home() {
           {tasks.length <= 0 ? (
             <EmptyInfo />
           ) : (
-            <Tasks tasks={tasks} deleteTask={handleDeleteTask} />
+            <Tasks
+              tasks={tasks}
+              deleteTask={handleDeleteTask}
+              handleTaskOnCheck={setTasks}
+            />
           )}
         </TasksContainer>
       </Main>
