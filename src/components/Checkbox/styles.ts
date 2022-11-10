@@ -15,6 +15,7 @@ export const Container = styled.div`
     vertical-align: middle;
     margin-right: 1rem;
     display: inline-block;
+    cursor: pointer;
   }
 
   input:checked + label::before {
