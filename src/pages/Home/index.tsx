@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { PlusCircle } from 'phosphor-react'
 import {
@@ -27,6 +27,7 @@ export interface TasksProps {
 export function Home() {
   const [inputContent, setInputContent] = useState('')
   const [tasks, setTasks] = useState<TasksProps[]>([])
+  const [tasksDone, setTasksDone] = useState(0)
 
   function handleCreateTask(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -43,6 +44,14 @@ export function Home() {
     const removedTask = tasks.filter((task) => task.id !== taskId)
     setTasks(removedTask)
   }
+
+  useEffect(() => {
+    const done = tasks.reduce((acc, currentValue) => {
+      if (currentValue.isChecked) acc++
+      return acc
+    }, 0)
+    setTasksDone((state) => done)
+  }, [tasks])
 
   return (
     <Container>
@@ -71,7 +80,7 @@ export function Home() {
 
           <TasksDone>
             Concluídas
-            <span>0</span>
+            <span>{`${tasksDone} de ${tasks.length}`}</span>
           </TasksDone>
         </Info>
         <TasksContainer>

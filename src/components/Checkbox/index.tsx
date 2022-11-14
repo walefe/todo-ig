@@ -23,7 +23,7 @@ export function Checkbox({
           handleTaskOnCheck((state) => {
             const updateTask = state.map((task) => {
               if (task.id === id) {
-                task.isChecked = true
+                task.isChecked = e.target.checked
               }
               return task
             })
