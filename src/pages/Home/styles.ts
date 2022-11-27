@@ -56,9 +56,14 @@ export const ButtonForm = styled.button`
     line-height: 1.4;
   }
 
-  :hover {
+  :hover:not(:disabled) {
     background: ${(props) => props.theme.blue};
     transition: background 0.2s;
+  }
+
+  :disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `
 

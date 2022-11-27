@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { PlusCircle } from 'phosphor-react'
 import {
@@ -40,6 +40,15 @@ export function Home() {
     setInputContent('')
   }
 
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event?.target.setCustomValidity('')
+    setInputContent(event.target.value)
+  }
+
+  function handleNewTaskInvalid(event: ChangeEvent<HTMLInputElement>) {
+    event?.target.setCustomValidity('Esse campo é obrigatório!')
+  }
+
   function handleDeleteTask(taskId: string) {
     const removedTask = tasks.filter((task) => task.id !== taskId)
     setTasks(removedTask)
@@ -53,6 +62,7 @@ export function Home() {
     setTasksDone((state) => done)
   }, [tasks])
 
+  const isNewTaskEmpty = inputContent.length === 0
   return (
     <Container>
       <Header>
@@ -62,10 +72,12 @@ export function Home() {
       <Form onSubmit={handleCreateTask}>
         <InputForm
           placeholder="Adicione uma nova tarefa"
-          onChange={(e) => setInputContent(e.target.value)}
+          onChange={handleNewTaskChange}
+          onInvalid={handleNewTaskInvalid}
           value={inputContent}
+          required
         />
-        <ButtonForm type="submit">
+        <ButtonForm type="submit" disabled={isNewTaskEmpty}>
           <span>Criar</span>
           <PlusCircle size={16} weight="bold" />
         </ButtonForm>
